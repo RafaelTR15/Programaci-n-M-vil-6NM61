@@ -1,0 +1,9 @@
+/**
+ Trujillo Rocha Rafael 6NM61
+ Programación movil  
+ */
+fun main() {
+    print("HelloUPIICSA ")
+    println("- Mi nombre es Rafael")
+    println("y esta es mi primer tarea.")
+}
