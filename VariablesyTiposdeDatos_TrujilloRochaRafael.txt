@@ -1,0 +1,10 @@
+/**
+ * Variables y tipos de datos
+ * Trujillo Rocha Rafael  6NM61
+ */
+const val pi = 3.1416
+fun main() {
+    val radio = 2.5555f
+    val perimetro = (2*pi)*radio
+    println("El perimetro del circulo es:  $perimetro")
+}
