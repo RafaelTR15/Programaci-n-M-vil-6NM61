@@ -1,0 +1,24 @@
+/**
+ Trujillo Rocha Rafael 6NM61
+ Programación movil  
+ */
+fun main() {
+    val nombres = list0f(
+        "Juan",
+        "Jose",
+        "Rafa",
+        "Pedro",
+        "Pablo",
+        "Liliana",
+        "Nino",
+        "Maira",
+        "Marina"
+    )
+    for (nombre in nombres) {
+        println(nombre)
+        if (nombre == "Rafa") {
+            println("Personaje Encontrado!")
+            break
+        }
+    }
+}
