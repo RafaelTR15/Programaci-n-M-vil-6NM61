@@ -1,4 +1,7 @@
-
+/**
+ Trujillo Rocha Rafael 6NM61
+ Programación movil  
+ */
 fun edad() {
     print("Ingresa edad y presiona enter (escribe solo el numero ): ")
     val age = readLine()?.toInt()
