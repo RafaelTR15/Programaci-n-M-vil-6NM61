@@ -1,0 +1,13 @@
+/**
+ Trujillo Rocha Rafael 6NM61
+ Programación movil  
+ */
+import kotlin.math.PI
+
+fun main() {
+    val radio = 5.0
+
+    val area = PI * radio * radio
+
+    println("El área del círculo con radio $radio es: $area")
+}
