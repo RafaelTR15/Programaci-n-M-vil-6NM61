@@ -1,0 +1,26 @@
+/**
+ Trujillo Rocha Rafael 6NM61
+ Programación movil  
+ */
+import kotlin.random.Random
+
+fun main() {
+    val calificacion1 = 8
+    val calificacion2 = 8
+    val calificacion3 = Random.nextDouble(0.0, 1.0) * 10  // Escalar de 0-1 a 0-10
+
+    val promedio = (calificacion1 + calificacion2 + calificacion3) / 3
+
+    if (promedio >= 6) {
+        println("El promedio es $promedio (Aprobado)")
+
+        val calificacionRedondeada = when {
+            promedio % 1 >= 0.5 -> kotlin.math.ceil(promedio)
+            else -> kotlin.math.floor(promedio)
+        }
+
+        println("Calificación redondeada: $calificacionRedondeada")
+    } else {
+        println("El promedio es $promedio (Reprobado)")
+    }
+}
