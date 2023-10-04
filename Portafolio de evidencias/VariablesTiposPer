@@ -1,0 +1,17 @@
+/**
+ Trujillo Rocha Rafael 6NM61
+ Programación movil  
+ */
+fun main() {
+    val numeroDecimal = 5.1602
+    println("El tipo de dato asignado por defecto para el número decimal es: Double")
+
+    val numeroFlotante = numeroDecimal.toFloat()
+    println("La variable decimal convertida a flotante es: $numeroFlotante")
+
+    val Pi: Double = 3.141592
+    val radio = numeroDecimal
+    val perimetro = 2 * Pi * radio
+
+    println("El perímetro del círculo es: $perimetro")
+}
