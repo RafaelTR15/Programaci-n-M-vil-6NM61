@@ -10,7 +10,6 @@ fun main(){
         miVehiculo.recargar(20.07f)
         println("El tanque ahora tiene ${miVehiculo.gasolina}")
         val golNegro = Vehiculos("Volkswagen", "Gol")
-        // Crear un nuevo auto pasandole todos los argumentos con NamedArguments
         val sonicAzul = Vehiculos(
                 marca = "Ford",
                 modelo = "Sonic",
