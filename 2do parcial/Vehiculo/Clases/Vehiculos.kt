@@ -1,5 +1,5 @@
 package Clases
-class Vehiculo (val marca: String, val modelo: String, var color: String = "Negro"){
+class Vehiculos (val marca: String, val modelo: String, var color: String = "Negro"){
 
     init {
         println("""Los datos del coche son:
