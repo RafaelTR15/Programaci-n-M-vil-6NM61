@@ -1,5 +1,5 @@
 package Clases
-//Clase Goomba
+//Clase  de Goomba
 class Goomba: Enemy("Goomba", 1){
     //(name: String, strength: Int):
     //Enemy(name,strength) {
