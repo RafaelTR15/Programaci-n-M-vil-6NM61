@@ -1,0 +1,262 @@
+from experta import Fact, Rule, KnowledgeEngine, AND, OR
+
+
+# Definición de hechos para representar información sobre enfermedades, síntomas y explicaciones
+class Enfermedad(Fact):
+    """Informacion acerca de la enfermedad"""
+    pass
+
+
+class Sintoma(Fact):
+    """Informacion acerca de los sintomas que padece el paciente."""
+    pass
+
+
+class Explicacion(Fact):
+    """Explicacion del resultado del diagnostico"""
+    pass
+
+
+# Definición del sistema experto que hereda de KnowledgeEngine
+class MedicalExpertSystem(KnowledgeEngine):
+    # Reglas para diagnosticar enfermedades específicas basadas en síntomas
+
+    @Rule(AND(Enfermedad(name='Bronquitis'),
+              OR(Sintoma(name='tos_sin_mucosidad'), Sintoma(name='fatiga'), Sintoma(name='dolor_corporal_leve'),
+                 Sintoma(name='dolor_en_pecho'))))
+    def diagnose_bronquitis(self):
+        self.declare(Enfermedad(name='Bronquitis', diagnosis='Positivo'))
+
+    @Rule(AND(Enfermedad(name='Epilepsia'), OR(Sintoma(name='confusión_temporal'), Sintoma(name='rigidez_muscular'),
+                                               Sintoma(name='movimientos_incontrolabes'))))
+    def diagnose_epilepsia(self):
+        self.declare(Enfermedad(name='Epilepsia', diagnosis='Positivo'))
+
+    @Rule(AND(Enfermedad(name='Anorexia'),
+              OR(Sintoma(name='debilidad'), Sintoma(name='falta_de_apetito'), Sintoma(name='nauseas'),
+                 Sintoma(name='palidez'))))
+    def diagnose_anorexia(self):
+        self.declare(Enfermedad(name='Anorexia', diagnosis='Positivo'))
+
+    @Rule(AND(Enfermedad(name='Artritis'),
+              OR(Sintoma(name='dolor_en_las_articulaciones'), Sintoma(name='fatiga'), Sintoma(name='hinchazón'),
+                 Sintoma(name='rigidez_matutina'))))
+    def diagnose_artritis(self):
+        self.declare(Enfermedad(name='Artritis', diagnosis='Positivo'))
+
+    @Rule(AND(Enfermedad(name='Covid_19'),
+              OR(Sintoma(name='dificultad_para_respirar'), Sintoma(name='opresión_en_el_pecho'),
+                 Sintoma(name='ojos_llorosos'), Sintoma(name='tos'))))
+    def diagnose_covid_19(self):
+        self.declare(Enfermedad(name='Covid_19', diagnosis='Positivo'))
+
+    @Rule(AND(Enfermedad(name='Paperas'),
+              OR(Sintoma(name='escalofrios'), Sintoma(name='boca_seca'), Sintoma(name='dolor_en_cuello'),
+                 Sintoma(name='malestar_muscular'))))
+    def diagnose_paperas(self):
+        self.declare(Enfermedad(name='Paperas', diagnosis='Positivo'))
+
+    @Rule(AND(Enfermedad(name='Conjuntivitis'),
+              OR(Sintoma(name='enrojecimiento'), Sintoma(name='lagrimeo'), Sintoma(name='picazón_en_los_ojos'),
+                 Sintoma(name='sensibilidad_a_la_luz'))))
+    def diagnose_conjuntivitis(self):
+        self.declare(Enfermedad(name='Conjuntivitis', diagnosis='Positivo'))
+
+    @Rule(AND(Enfermedad(name='Tifoidea'),
+              OR(Sintoma(name='dolor_abdominal'), Sintoma(name='diarrea'), Sintoma(name='fatiga'),
+                 Sintoma(name='pérdida_de_peso'))))
+    def diagnose_tifoidea(self):
+        self.declare(Enfermedad(name='Tifoidea', diagnosis='Positivo'))
+
+    @Rule(AND(Enfermedad(name='Zika'),
+              OR(Sintoma(name='dolor_detras_de_los_ojos'), Sintoma(name='dolor_de_cabeza_severo'),
+                 Sintoma(name='erupción_cutanea'), Sintoma(name='fiebre'))))
+    def diagnose_zika(self):
+        self.declare(Enfermedad(name='Zika', diagnosis='Positivo'))
+
+    @Rule(AND(Enfermedad(name='Diabetes'),
+              OR(Sintoma(name='fatiga'), Sintoma(name='pérdida_de_peso_inexplicada'), Sintoma(name='sed_excesiva'),
+                 Sintoma(name='visión_borrosa'))))
+    def diagnose_diabetes(self):
+        self.declare(Enfermedad(name='Diabetes', diagnosis='Positivo'))
+
+    @Rule(AND(Enfermedad(name='Alergia'),
+              OR(Sintoma(name='estornudos'), Sintoma(name='lagrimeo_constante'), Sintoma(name='tos_seca'),
+                 Sintoma(name='sangrado_nasal'))))
+    def diagnose_alergia(self):
+        self.declare(Enfermedad(name='Alergia', diagnosis='Positivo'))
+
+    @Rule(AND(Enfermedad(name='Gripe'),
+              OR(Sintoma(name='dolor_de_cabeza'), Sintoma(name='dolor_de_cuerpo'), Sintoma(name='escalofríos'),
+                 Sintoma(name='fiebre'))))
+    def diagnose_gripe(self):
+        self.declare(Enfermedad(name='Gripe', diagnosis='Positivo'))
+
+    @Rule(AND(Enfermedad(name='Hepatitis'),
+              OR(Sintoma(name='dolor_abdominal'), Sintoma(name='fatiga'), Sintoma(name='ictericia'),
+                 Sintoma(name='náuseas'))))
+    def diagnose_hepatitis(self):
+        self.declare(Enfermedad(name='Hepatitis', diagnosis='Positivo'))
+
+    @Rule(AND(Enfermedad(name='Tiroides'),
+              OR(Sintoma(name='aumento_de_peso'), Sintoma(name='fatiga'), Sintoma(name='piel_seca'),
+                 Sintoma(name='sensibilidad_al_frío'))))
+    def diagnose_tiroides(self):
+        self.declare(Enfermedad(name='Tiroides', diagnosis='Positivo'))
+
+    @Rule(AND(Enfermedad(name='Dermatitis'),
+              OR(Sintoma(name='picazon'), Sintoma(name='piel_seca'), Sintoma(name='ampollas'),
+                 Sintoma(name='descamacion_en_piel'))))
+    def diagnose_infeccion_urinaria(self):
+        self.declare(Enfermedad(name='Dermatitis', diagnosis='Positivo'))
+
+    @Rule(AND(Enfermedad(name='Migraña'), OR(Sintoma(name='dolor_de_cabeza_pulsátil'), Sintoma(name='náuseas'),
+                                             Sintoma(name='sensibilidad_a_la_luz'),
+                                             Sintoma(name='sensibilidad_al_sonido'))))
+    def diagnose_migrana(self):
+        self.declare(Enfermedad(name='Migraña', diagnosis='Positivo'))
+
+    @Rule(AND(Enfermedad(name='Neumonía'),
+              OR(Sintoma(name='dificultad_para_respirar'), Sintoma(name='dolor_en_el_pecho'), Sintoma(name='fiebre'),
+                 Sintoma(name='tos'))))
+    def diagnose_neumonia(self):
+        self.declare(Enfermedad(name='Neumonía', diagnosis='Positivo'))
+
+    @Rule(AND(Enfermedad(name='Cancer_en_el_intestino'),
+              OR(Sintoma(name='alteraciones_en_el_patrón_de_heces'), Sintoma(name='dolor_abdominal'),
+                 Sintoma(name='hinchazón'), Sintoma(name='malestar'))))
+    def diagnose_cancer_en_el_intestino(self):
+        self.declare(Enfermedad(name='Cancer_en_el_intestino', diagnosis='Positivo'))
+
+    @Rule(AND(Enfermedad(name='Varicela'),
+              OR(Sintoma(name='dolor_de_cabeza'), Sintoma(name='erupción'), Sintoma(name='puntos_rojos'),
+                 Sintoma(name='fiebre'))))
+    def diagnose_varicela(self):
+        self.declare(Enfermedad(name='Varicela', diagnosis='Positivo'))
+
+
+# Base de conocimiento de todos los síntomas y a la enfermedad que pertenecen
+base_de_conocimiento = {
+    'Bronquitis': ['tos_sin_mucosidad', 'fatiga', 'dolor_corporal_leve', 'dolor_en_pecho'],
+    'Epilepsia': ['confusion_temporal', 'rigidez_muscular', 'movimientos_incontrolables', 'perdida_del_conocimiento'],
+    'Anorexia': ['debilidad', 'falta_de_apetito', 'nauseas', 'palidez'],
+    'Artritis': ['dolor_en_las_articulaciones', 'fatiga', 'hinchazón', 'rigidez_matutina'],
+    'Covid_19': ['dificultad_para_respirar', 'opresión_en_el_pecho', 'ojos_llorosos', 'tos'],
+    'Paperas': ['escalofrios', 'boca_seca', 'dolor_en_cuello', 'malestar_muscular'],
+    'Conjuntivitis': ['enrojecimiento', 'lagrimeo', 'picazón_en_los_ojos', 'sensibilidad_a_la_luz'],
+    'Tifoidea': ['dolor_abdominal', 'diarrea', 'fatiga', 'pérdida_de_peso'],
+    'Zika': ['dolor_detras_de_los_ojos', 'dolor_de_cabeza_severo', 'erupción_cutanea', 'fiebre'],
+    'Diabetes': ['fatiga', 'pérdida_de_peso_inexplicada', 'sed_excesiva', 'visión_borrosa'],
+    'Alergia': ['estornudos', 'lagrimeo_constante', 'tos_seca', 'sangrado_nasal'],
+    'Gripe': ['dolor_de_cabeza', 'dolor_de_cuerpo', 'escalofríos', 'fiebre'],
+    'Hepatitis': ['dolor_abdominal', 'fatiga', 'ictericia', 'náuseas'],
+    'Tiroides': ['aumento_de_peso', 'fatiga', 'piel_seca', 'sensibilidad_al_frío'],
+    'Dermatitis': ['picazon', 'piel_seca', 'ampollas', 'descamacion_en_piel'],
+    'Migraña': ['dolor_de_cabeza_pulsátil', 'náuseas', 'sensibilidad_a_la_luz', 'sensibilidad_al_sonido'],
+    'Neumonía': ['dificultad_para_respirar', 'dolor_en_el_pecho', 'fiebre', 'tos'],
+    'Cancer_en_el_intestino': ['alteraciones_en_el_patrón_de_heces', 'dolor_abdominal', 'hinchazón', 'malestar'],
+    'Varicela': ['dolor_de_cabeza', 'erupción', 'puntos_rojos', 'fiebre']
+}
+
+
+# Esta funcion tiene como objetivo interactuar con el usuario.
+# ya que en base a preguntas relacionados con los sintomas que tiene podra determinar la enfermedad,
+
+def interact_with_user(base_de_conocimiento, min_coincidencias=3):
+    engine = MedicalExpertSystem()
+    engine.reset()
+
+    # Lista para almacenar los síntomas confirmados por el paciente
+    confirmed_symptoms = []
+
+    # Itera sobre las enfermedades y sus síntomas en la base de conocimiento
+    for enfermedad, sintomas in base_de_conocimiento.items():
+        engine.declare(Enfermedad(name=enfermedad))
+        coincidencias = 0
+
+        # Filtra las enfermedades basadas en los síntomas confirmados por el paciente
+        filtered_sintomas = [sintoma for sintoma in sintomas if sintoma not in confirmed_symptoms]
+
+        # Si el paciente no ha declarado ningún síntoma aún, preguntar por todos los síntomas
+        if len(confirmed_symptoms) == 0:
+            filtered_sintomas = sintomas
+
+        # Pregunta al usuario si tiene cada síntoma y actualiza el motor de inferencia con las reglas
+        for sintoma in filtered_sintomas:
+            answer = input(f"Tiene {sintoma}? (si/no): ")
+            if answer.lower() == 'si':
+                engine.declare(Sintoma(name=sintoma))
+                confirmed_symptoms.append(sintoma)
+                coincidencias += 1
+
+            # Si ya se ha encontrado un diagnóstico positivo, no sigas preguntando
+            if coincidencias >= min_coincidencias:
+                break
+
+        # Si hay suficientes coincidencias, ejecuta el motor de inferencia que contiene las reglas
+        if coincidencias >= min_coincidencias:
+            engine.run()
+            # Verifica si se ha encontrado un diagnóstico y muestra la explicación confirmando los síntomas que el paciente a declarado tener
+            for fact_id, fact in engine.facts.items():
+                if isinstance(fact, Enfermedad) and 'diagnosis' in fact:
+                    print(f"Diagnóstico: {fact['name']} - {fact['diagnosis']}")
+                    # Declare and print out the explanation
+                    explicacion_txt = f"El diagnóstico es {fact['name']} ya que los sintomas pertenecen a: {', '.join(confirmed_symptoms)}."
+                    print(f"Explicación: {explicacion_txt}")
+                    print("Si desea una mejor valoracion le sugerimos acudir a nuestras instalaciones")
+                    return
+
+    # Muestra un mensaje si no se encuentra ninguna enfermedad con suficientes coincidencias
+    print(f"No hay registro de alguna enfermedad que coincida con al menos {min_coincidencias} síntomas proporcionados.")
+
+
+# Funcion principal que muestra la interfaz del sistema experto iniciando con un breve saludo y desplegando un menu para comenzar hacer un diagnostico
+def main():
+    while True:
+        try:
+            print("\033[1;36m")  # Cambia el color del texto a cian brillante
+            print("╔════════════════════════════════════════════════════════════╗")
+            print("║             Sistema Experto Médico UPIICSIANO              ║")
+            print("║                 ¡Cuidando tu salud!                        ║")
+            print("║                                                            ║")
+            print("║            ¿En qué podemos ayudarte hoy?                   ║")
+            print("║                                                            ║")
+            print("║\033[0m                                                            ║")  # Restablece el color del texto a su valor predeterminado
+            print("║    [\033[1;32m1""\033""[0m] Consultar y solicitar un diagnóstico                ║")  # Cambia el color del número de opción a verde
+            print("║    [\033[1;31m2""\033""[0m] Salir de la consulta médica online.                 ║")  # Cambia el color del número de opción a rojo
+            print("║\033[1;36m                                                            ║")
+            print("║                                                            ║")
+            print("╚════════════════════════════════════════════════════════════╝")
+            print("\033[0m")
+
+            opcion = input("\nSeleccione una opción (\033[1;32m1\033[0m o \033[1;31m2\033[0m): ")
+
+            if opcion == '1':
+                print("\nExcelente, comenzaremos con tu consulta médica.")
+                interact_with_user(base_de_conocimiento, min_coincidencias=3)
+                # Después de mostrar el diagnóstico y la explicación,
+                # solicita al paciente que vuelva a solicitar una consulta o salga del programa
+                while True:
+                    volver_menu = input("\n¿Desea realizar otra consulta? (\033[1;32msi\033[0m/\033[1;31mno\033[0m): ")
+                    if volver_menu.lower() == 'si':
+                        break
+                    elif volver_menu.lower() == 'no':
+                        print("\nGracias por confiar en nosotros. ¡Que te mejores!")
+                        exit()
+                    else:
+                        print("Por favor, ingrese 'si' o 'no'.")
+
+            elif opcion == '2':
+                print("\nSaliendo de la consulta médica. ¡Esperamos haberte ayudado!")
+                break
+            else:
+                print("Por favor, seleccione una opción válida (\033[1;32m1\033[0m o \033[1;31m2\033[0m).")
+
+        except Exception as e:
+            print(f"Error inesperado: {e}")
+
+
+if __name__ == "__main__":
+    main()
+
+
